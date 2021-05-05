@@ -1,0 +1,2174 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xml:lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../dist/css/layui.css">
+    <link rel="stylesheet" href="../dist/css/layui-ff.css">
+    <style>
+    body {
+        padding: 15px;
+    }
+
+    .demo ul {
+        list-style: none;
+        padding-top: 15px;
+        font-size: 18px;
+    }
+
+    .demo li {
+        float: left;
+        width: 160px;
+        height: 140px;
+        text-align: center;
+        list-style: none !important;
+    }
+
+    .demo li .ficon, .demo li .layui-icon {
+        font-size: 48px;
+        line-height: 100px;
+        margin: 10px 0;
+        color: #333;
+        -webkit-transition: font-size 0.25s ease-out 0s;
+        -moz-transition: font-size 0.25s ease-out 0s;
+        transition: font-size 0.25s ease-out 0s;
+    }
+
+    .demo li .ficon:hover, .demo li .layui-icon:hover {
+        font-size: 100px;
+    }
+
+    .demo li .layui-btn + .layui-btn, .btn + .btn, .demo .layui-btn, .demo .btn {
+        margin: 5px;
+    }
+
+    @keyframes kf-doing {
+        0% {
+            transform: scale(0.5);
+        }
+        100% {
+            transform: scale(1.5);
+        }
+    }
+
+    .span-doing {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1em;
+    }
+
+    .div-doing {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        height: 1em;
+        line-height: 1em;
+        text-align: center;
+        margin: auto;
+    }
+
+    .dot-doing {
+        display: block;
+        height: 1em;
+        line-height: 1em;
+        width: 0.9em;
+        animation-name: kf-doing;
+        animation-duration: 0.3s;
+        animation-timing-function: ease-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        flex: 1 1 0;
+    }
+
+    .dot-doing:nth-of-type(2) {
+        animation-delay: 0.15s;
+        opacity: 0.8;
+    }
+
+    .dot-doing:nth-of-type(3) {
+        animation-delay: 0.3s;
+        opacity: 0.6;
+    }
+
+    a:active, a:hover {
+        outline-width: 0;
+    }
+
+    a {
+        text-decoration: none;
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects;
+    }
+
+    .demo a:hover {
+        -webkit-transition: box-shadow .2s linear;
+        transition: box-shadow .2s linear;
+        box-shadow: inset 0 -10px #fadc23;
+    }
+
+    .demo a {
+        color: #3a3a3a;
+        font-size: 16px;
+        font-family: PingFangSC-Semibold, "Microsoft Yahei-Bold", "Microsoft Yahei";
+        border-bottom: 2px solid #fadc23;
+        text-decoration: none;
+        line-height: 1;
+    }
+    </style>
+    <title>UI</title>
+</head>
+<body>
+<div class="demo">
+    <a href="javascript:void(0);">ff_链接效果~~</a>
+    <hr>
+    <button class="layui-btn big-space">big-space</button>
+    <button class="layui-btn">default</button>
+    <button class="layui-btn layui-btn-xs">xs</button>
+    <button class="layui-btn layui-btn-sm">sm</button>
+    <button class="layui-btn layui-btn-lg">lg</button>
+    <button class="layui-btn layui-btn-primary">primary</button>
+    <button class="layui-btn layui-btn-normal">normal</button>
+    <button class="layui-btn layui-btn-warm">warm</button>
+    <button class="layui-btn layui-btn-danger">danger</button>
+    <button class="layui-btn layui-btn-disabled">disabled</button>
+    <hr>
+    <button class="btn btn-light">light</button>
+    <button class="btn btn-grey">grey</button>
+    <button class="btn btn-default">default</button>
+    <button class="btn btn-primary">primary</button>
+    <button class="btn btn-success">success</button>
+    <button class="btn btn-info">info</button>
+    <button class="btn btn-warning">warning</button>
+    <button class="btn btn-danger">danger</button>
+    <button class="btn btn-dark">dark</button>
+    <button class="btn btn-pink">pink</button>
+    <button class="btn btn-purple">purple</button>
+    <button class="btn btn-indigo">indigo</button>
+    <button class="btn btn-blue">blue</button>
+    <button class="btn btn-teal">teal</button>
+    <button class="btn btn-orange">orange</button>
+    <button class="btn btn-brown">brown</button>
+    <button class="btn btn-green">green</button>
+    <button class="btn btn-lightgreen">lightgreen</button>
+    <button class="btn btn-yellow">yellow</button>
+    <hr>
+    <button class="btn btn-thin btn-light">light</button>
+    <button class="btn btn-thin btn-grey">grey</button>
+    <button class="btn btn-thin btn-default">default</button>
+    <button class="btn btn-thin btn-primary">primary</button>
+    <button class="btn btn-thin btn-success">success</button>
+    <button class="btn btn-thin btn-info">info</button>
+    <button class="btn btn-thin btn-warning">warning</button>
+    <button class="btn btn-thin btn-danger">danger</button>
+    <button class="btn btn-thin btn-dark">dark</button>
+    <button class="btn btn-thin btn-pink">pink</button>
+    <button class="btn btn-thin btn-purple">purple</button>
+    <button class="btn btn-thin btn-indigo">indigo</button>
+    <button class="btn btn-thin btn-blue">blue</button>
+    <button class="btn btn-thin btn-teal">teal</button>
+    <button class="btn btn-thin btn-orange">orange</button>
+    <button class="btn btn-thin btn-brown">brown</button>
+    <button class="btn btn-thin btn-green">green</button>
+    <button class="btn btn-thin btn-lightgreen">lightgreen</button>
+    <button class="btn btn-thin btn-yellow">yellow</button>
+    <hr>
+    <button class="btn btn-outline btn-light">light</button>
+    <button class="btn btn-outline btn-grey">grey</button>
+    <button class="btn btn-outline btn-white">white</button>
+    <button class="btn btn-outline btn-default">default</button>
+    <button class="btn btn-outline btn-primary">primary</button>
+    <button class="btn btn-outline btn-success">success</button>
+    <button class="btn btn-outline btn-info">info</button>
+    <button class="btn btn-outline btn-warning">warning</button>
+    <button class="btn btn-outline btn-danger">danger</button>
+    <button class="btn btn-outline btn-dark">dark</button>
+    <button class="btn btn-outline btn-pink">pink</button>
+    <button class="btn btn-outline btn-purple">purple</button>
+    <button class="btn btn-outline btn-indigo">indigo</button>
+    <button class="btn btn-outline btn-blue">blue</button>
+    <button class="btn btn-outline btn-teal">teal</button>
+    <button class="btn btn-outline btn-orange">orange</button>
+    <button class="btn btn-outline btn-brown">brown</button>
+    <button class="btn btn-outline btn-green">green</button>
+    <button class="btn btn-outline btn-lightgreen">lightgreen</button>
+    <button class="btn btn-outline btn-yellow">yellow</button>
+    <hr>
+    <button class="layui-btn btn-light">light</button>
+    <button class="layui-btn btn-grey">grey</button>
+    <button class="layui-btn btn-default">default</button>
+    <button class="layui-btn btn-primary">primary</button>
+    <button class="layui-btn btn-success">success</button>
+    <button class="layui-btn btn-info">info</button>
+    <button class="layui-btn btn-warning">warning</button>
+    <button class="layui-btn btn-danger">danger</button>
+    <button class="layui-btn btn-dark">dark</button>
+    <button class="layui-btn btn-pink">pink</button>
+    <button class="layui-btn btn-purple">purple</button>
+    <button class="layui-btn btn-indigo">indigo</button>
+    <button class="layui-btn btn-blue">blue</button>
+    <button class="layui-btn btn-teal">teal</button>
+    <button class="layui-btn btn-orange">orange</button>
+    <button class="layui-btn btn-brown">brown</button>
+    <button class="layui-btn btn-green">green</button>
+    <button class="layui-btn btn-lightgreen">lightgreen</button>
+    <button class="layui-btn btn-yellow">yellow</button>
+    <hr>
+    <button class="layui-btn active btn-light">light</button>
+    <button class="layui-btn active btn-grey">grey</button>
+    <button class="layui-btn active btn-default">default</button>
+    <button class="layui-btn active btn-primary">primary</button>
+    <button class="layui-btn active btn-success">success</button>
+    <button class="layui-btn active btn-info">info</button>
+    <button class="layui-btn active btn-warning">warning</button>
+    <button class="layui-btn active btn-danger">danger</button>
+    <button class="layui-btn active btn-dark">dark</button>
+    <button class="layui-btn active btn-pink">pink</button>
+    <button class="layui-btn active btn-purple">purple</button>
+    <button class="layui-btn active btn-indigo">indigo</button>
+    <button class="layui-btn active btn-blue">blue</button>
+    <button class="layui-btn active btn-teal">teal</button>
+    <button class="layui-btn active btn-orange">orange</button>
+    <button class="layui-btn active btn-brown">brown</button>
+    <button class="layui-btn active btn-green">green</button>
+    <button class="layui-btn active btn-lightgreen">lightgreen</button>
+    <button class="layui-btn active btn-yellow">yellow</button>
+    <hr>
+    <button class="layui-btn light btn-light">light</button>
+    <button class="layui-btn light btn-grey">grey</button>
+    <button class="layui-btn light btn-default">default</button>
+    <button class="layui-btn light btn-primary">primary</button>
+    <button class="layui-btn light btn-success">success</button>
+    <button class="layui-btn light btn-info">info</button>
+    <button class="layui-btn light btn-warning">warning</button>
+    <button class="layui-btn light btn-danger">danger</button>
+    <button class="layui-btn light btn-dark">dark</button>
+    <button class="layui-btn light btn-pink">pink</button>
+    <button class="layui-btn light btn-purple">purple</button>
+    <button class="layui-btn light btn-indigo">indigo</button>
+    <button class="layui-btn light btn-blue">blue</button>
+    <button class="layui-btn light btn-teal">teal</button>
+    <button class="layui-btn light btn-orange">orange</button>
+    <button class="layui-btn light btn-brown">brown</button>
+    <button class="layui-btn light btn-green">green</button>
+    <button class="layui-btn light btn-lightgreen">lightgreen</button>
+    <button class="layui-btn light btn-yellow">yellow</button>
+    <hr>
+    <button class="layui-btn btn-thin btn-light">light</button>
+    <button class="layui-btn btn-thin btn-grey">grey</button>
+    <button class="layui-btn btn-thin btn-default">default</button>
+    <button class="layui-btn btn-thin btn-primary">primary</button>
+    <button class="layui-btn btn-thin btn-success">success</button>
+    <button class="layui-btn btn-thin btn-info">info</button>
+    <button class="layui-btn btn-thin btn-warning">warning</button>
+    <button class="layui-btn btn-thin btn-danger">danger</button>
+    <button class="layui-btn btn-thin btn-dark">dark</button>
+    <button class="layui-btn btn-thin btn-pink">pink</button>
+    <button class="layui-btn btn-thin btn-purple">purple</button>
+    <button class="layui-btn btn-thin btn-indigo">indigo</button>
+    <button class="layui-btn btn-thin btn-blue">blue</button>
+    <button class="layui-btn btn-thin btn-teal">teal</button>
+    <button class="layui-btn btn-thin btn-orange">orange</button>
+    <button class="layui-btn btn-thin btn-brown">brown</button>
+    <button class="layui-btn btn-thin btn-green">green</button>
+    <button class="layui-btn btn-thin btn-lightgreen">lightgreen</button>
+    <button class="layui-btn btn-thin btn-yellow">yellow</button>
+    <hr>
+    <button class="layui-btn btn-thin btn-alt btn-light">light</button>
+    <button class="layui-btn btn-thin btn-alt btn-grey">grey</button>
+    <button class="layui-btn btn-thin btn-alt btn-default">default</button>
+    <button class="layui-btn btn-thin btn-alt btn-primary">primary</button>
+    <button class="layui-btn btn-thin btn-alt btn-success">success</button>
+    <button class="layui-btn btn-thin btn-alt btn-info">info</button>
+    <button class="layui-btn btn-thin btn-alt btn-warning">warning</button>
+    <button class="layui-btn btn-thin btn-alt btn-danger">danger</button>
+    <button class="layui-btn btn-thin btn-alt btn-dark">dark</button>
+    <button class="layui-btn btn-thin btn-alt btn-pink">pink</button>
+    <button class="layui-btn btn-thin btn-alt btn-purple">purple</button>
+    <button class="layui-btn btn-thin btn-alt btn-indigo">indigo</button>
+    <button class="layui-btn btn-thin btn-alt btn-blue">blue</button>
+    <button class="layui-btn btn-thin btn-alt btn-teal">teal</button>
+    <button class="layui-btn btn-thin btn-alt btn-orange">orange</button>
+    <button class="layui-btn btn-thin btn-alt btn-brown">brown</button>
+    <button class="layui-btn btn-thin btn-alt btn-green">green</button>
+    <button class="layui-btn btn-thin btn-alt btn-lightgreen">lightgreen</button>
+    <button class="layui-btn btn-thin btn-alt btn-yellow">yellow</button>
+    <hr>
+</div>
+<form class="layui-form" action="">
+    <div class="layui-form-item">
+        <label class="layui-form-label">输入框</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">密码框</label>
+        <div class="layui-input-inline">
+            <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
+                   class="layui-input">
+        </div>
+        <div class="layui-form-mid layui-word-aux">辅助文字</div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">选择框</label>
+        <div class="layui-input-block">
+            <select name="quiz" lay-search>
+                <option value="">请选择</option>
+                <optgroup label="城市记忆">
+                    <option value="你工作的第一个城市">你工作的第一个城市？</option>
+                </optgroup>
+                <optgroup label="学生时代">
+                    <option value="你的工号">你的工号？</option>
+                    <option value="禁用效果" disabled>禁用效果</option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">复选框</label>
+        <div class="layui-input-block">
+            <input type="checkbox" name="like[write]" title="写作">
+            <input type="checkbox" name="like[read]" title="阅读" checked>
+            <input type="checkbox" name="like[dai]" title="发呆" disabled>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">复选框</label>
+        <div class="layui-input-block">
+            <input type="checkbox" name="like[write1]" title="写作" lay-skin="primary">
+            <input type="checkbox" name="like[read1]" title="阅读" lay-skin="primary" checked>
+            <input type="checkbox" name="like[dai1]" title="发呆" lay-skin="primary" disabled>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">开关</label>
+        <div class="layui-input-block">
+            <input type="checkbox" name="xxx" lay-skin="switch">
+            <input type="checkbox" name="yyy" lay-skin="switch" lay-text="ON|OFF" checked>
+            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="开启|关闭">
+            <input type="checkbox" name="aaa" lay-skin="switch" disabled>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">单选框</label>
+        <div class="layui-input-block">
+            <input type="radio" name="sex" value="nan" title="男">
+            <input type="radio" name="sex" value="nv" title="女" checked>
+            <input type="radio" name="sex" value="" title="中性" disabled>
+        </div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">文本域</label>
+        <div class="layui-input-block">
+            <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn btn-primary" lay-submit lay-filter="formDemo">立即提交</button>
+            <button class="layui-btn btn-primary disabled"><span class="span-doing"><div class="div-doing"><div
+                    class="dot-doing">•</div><div class="dot-doing">•</div><div class="dot-doing">•</div></div></span>
+            </button>
+            <button type="reset" class="layui-btn btn-default">重置</button>
+        </div>
+    </div>
+</form>
+<script src="../dist/layui.js"></script>
+<script>
+    layui.use("form", function () {
+        var form = layui.form;
+
+        form.on("submit(formDemo)", function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
+<div class="demo">
+    <hr>
+    <ul>
+        <li class="text-muted">text-muted<br>系统<br>abcABC<br>123</li>
+        <li class="text-primary">text-primary<br>系统<br>abcABC<br>123</li>
+        <li class="text-success">text-success<br>系统<br>abcABC<br>123</li>
+        <li class="text-info">text-info<br>系统<br>abcABC<br>123</li>
+        <li class="text-warning">text-warning<br>系统<br>abcABC<br>123</li>
+        <li class="text-danger">text-danger<br>系统<br>abcABC<br>123</li>
+        <li class="text-alert">text-alert<br>系统<br>abcABC<br>123</li>
+        <li class="text-system">text-system<br>系统<br>abcABC<br>123</li>
+        <li class="c-default">c-default<br>系统<br>abcABC<br>123</li>
+        <li class="c-red">c-red<br>系统<br>abcABC<br>123</li>
+        <li class="c-pink">c-pink<br>系统<br>abcABC<br>123</li>
+        <li class="c-purple">c-purple<br>系统<br>abcABC<br>123</li>
+        <li class="c-indigo">c-indigo<br>系统<br>abcABC<br>123</li>
+        <li class="c-blue">c-blue<br>系统<br>abcABC<br>123</li>
+        <li class="c-cyan">c-cyan<br>系统<br>abcABC<br>123</li>
+        <li class="c-teal">c-teal<br>系统<br>abcABC<br>123</li>
+        <li class="c-green">c-green<br>系统<br>abcABC<br>123</li>
+        <li class="c-yellow">c-yellow<br>系统<br>abcABC<br>123</li>
+        <li class="c-orange">c-orange<br>系统<br>abcABC<br>123</li>
+        <li class="c-brown">c-brown<br>系统<br>abcABC<br>123</li>
+        <li class="c-grey">c-grey<br>系统<br>abcABC<br>123</li>
+        <li class="c-title">c-title<br>系统<br>abcABC<br>123</li>
+        <li class="c-text">c-text<br>系统<br>abcABC<br>123</li>
+        <li class="c-tips">c-tips<br>系统<br>abcABC<br>123</li>
+        <li class="c-border">c-border<br>系统<br>abcABC<br>123</li>
+        <li class="c-primary">c-primary<br>系统<br>abcABC<br>123</li>
+        <li class="c-success">c-success<br>系统<br>abcABC<br>123</li>
+        <li class="c-info">c-info<br>系统<br>abcABC<br>123</li>
+        <li class="c-warning">c-warning<br>系统<br>abcABC<br>123</li>
+        <li class="c-danger">c-danger<br>系统<br>abcABC<br>123</li>
+    </ul>
+    <hr>
+    <ul>
+        <li>
+            <i class="ficon icon-zanting"></i>
+            <div class="fontclass">.icon-zanting</div>
+        </li>
+        <li>
+            <i class="ficon icon-check"></i>
+            <div class="fontclass">.icon-check</div>
+        </li>
+        <li>
+            <i class="ficon icon-close"></i>
+            <div class="fontclass">.icon-close</div>
+        </li>
+        <li>
+            <i class="ficon icon-roundcheckfill"></i>
+            <div class="fontclass">.icon-roundcheckfill</div>
+        </li>
+        <li>
+            <i class="ficon icon-roundcheck"></i>
+            <div class="fontclass">.icon-roundcheck</div>
+        </li>
+        <li>
+            <i class="ficon icon-roundclosefill"></i>
+            <div class="fontclass">.icon-roundclosefill</div>
+        </li>
+        <li>
+            <i class="ficon icon-roundclose"></i>
+            <div class="fontclass">.icon-roundclose</div>
+        </li>
+        <li>
+            <i class="ficon icon-unfold"></i>
+            <div class="fontclass">.icon-unfold</div>
+        </li>
+        <li>
+            <i class="ficon icon-warnfill"></i>
+            <div class="fontclass">.icon-warnfill</div>
+        </li>
+        <li>
+            <i class="ficon icon-warn"></i>
+            <div class="fontclass">.icon-warn</div>
+        </li>
+        <li>
+            <i class="ficon icon-back"></i>
+            <div class="fontclass">.icon-back</div>
+        </li>
+        <li>
+            <i class="ficon icon-top"></i>
+            <div class="fontclass">.icon-top</div>
+        </li>
+        <li>
+            <i class="ficon icon-pulldown"></i>
+            <div class="fontclass">.icon-pulldown</div>
+        </li>
+        <li>
+            <i class="ficon icon-pullup"></i>
+            <div class="fontclass">.icon-pullup</div>
+        </li>
+        <li>
+            <i class="ficon icon-right"></i>
+            <div class="fontclass">.icon-right</div>
+        </li>
+        <li>
+            <i class="ficon icon-selection"></i>
+            <div class="fontclass">.icon-selection</div>
+        </li>
+        <li>
+            <i class="ficon icon-fold"></i>
+            <div class="fontclass">.icon-fold</div>
+        </li>
+        <li>
+            <i class="ficon icon-selectionfill"></i>
+            <div class="fontclass">.icon-selectionfill</div>
+        </li>
+        <li>
+            <i class="ficon icon-chiping"></i>
+            <div class="fontclass">.icon-chiping</div>
+        </li>
+        <li>
+            <i class="ficon icon-diyu"></i>
+            <div class="fontclass">.icon-diyu</div>
+        </li>
+        <li>
+            <i class="ficon icon-gaoyu"></i>
+            <div class="fontclass">.icon-gaoyu</div>
+        </li>
+        <li>
+            <i class="ficon icon-rmb"></i>
+            <div class="fontclass">.icon-rmb</div>
+        </li>
+        <li>
+            <i class="ficon icon-down"></i>
+            <div class="fontclass">.icon-down</div>
+        </li>
+        <li>
+            <i class="ficon icon-msnui-market"></i>
+            <div class="fontclass">.icon-msnui-market</div>
+        </li>
+        <li>
+            <i class="ficon icon-msnui-db"></i>
+            <div class="fontclass">.icon-msnui-db</div>
+        </li>
+        <li>
+            <i class="ficon icon-msnui-server"></i>
+            <div class="fontclass">.icon-msnui-server</div>
+        </li>
+        <li>
+            <i class="ficon icon-services"></i>
+            <div class="fontclass">.icon-services</div>
+        </li>
+        <li>
+            <i class="ficon icon-weixuanzhongyuanquan"></i>
+            <div class="fontclass">.icon-weixuanzhongyuanquan</div>
+        </li>
+        <li>
+            <i class="ficon icon-shanchu1"></i>
+            <div class="fontclass">.icon-shanchu1</div>
+        </li>
+        <li>
+            <i class="ficon icon-female"></i>
+            <div class="fontclass">.icon-female</div>
+        </li>
+        <li>
+            <i class="ficon icon-male"></i>
+            <div class="fontclass">.icon-male</div>
+        </li>
+        <li>
+            <i class="ficon icon-pullleft"></i>
+            <div class="fontclass">.icon-pullleft</div>
+        </li>
+        <li>
+            <i class="ficon icon-pullright"></i>
+            <div class="fontclass">.icon-pullright</div>
+        </li>
+        <li>
+            <i class="ficon icon-shezhi1"></i>
+            <div class="fontclass">.icon-shezhi1</div>
+        </li>
+        <li>
+            <i class="ficon icon-wode1"></i>
+            <div class="fontclass">.icon-wode1</div>
+        </li>
+        <li>
+            <i class="ficon icon-tishi1"></i>
+            <div class="fontclass">.icon-tishi1</div>
+        </li>
+        <li>
+            <i class="ficon icon-bangzhu"></i>
+            <div class="fontclass">.icon-bangzhu</div>
+        </li>
+        <li>
+            <i class="ficon icon-windows"></i>
+            <div class="fontclass">.icon-windows</div>
+        </li>
+        <li>
+            <i class="ficon icon-refresharrow"></i>
+            <div class="fontclass">.icon-refresharrow</div>
+        </li>
+        <li>
+            <i class="ficon icon-jindianzi"></i>
+            <div class="fontclass">.icon-jindianzi</div>
+        </li>
+        <li>
+            <i class="ficon icon-msnui-tree-map"></i>
+            <div class="fontclass">.icon-msnui-tree-map</div>
+        </li>
+        <li>
+            <i class="ficon icon-disk"></i>
+            <div class="fontclass">.icon-disk</div>
+        </li>
+        <li>
+            <i class="ficon icon-process1"></i>
+            <div class="fontclass">.icon-process1</div>
+        </li>
+        <li>
+            <i class="ficon icon-msnui-alive"></i>
+            <div class="fontclass">.icon-msnui-alive</div>
+        </li>
+        <li>
+            <i class="ficon icon-msnui-net"></i>
+            <div class="fontclass">.icon-msnui-net</div>
+        </li>
+        <li>
+            <i class="ficon icon-qidong1"></i>
+            <div class="fontclass">.icon-qidong1</div>
+        </li>
+        <li>
+            <i class="ficon icon-yunwei"></i>
+            <div class="fontclass">.icon-yunwei</div>
+        </li>
+        <li>
+            <i class="ficon icon-wifi"></i>
+            <div class="fontclass">.icon-wifi</div>
+        </li>
+        <li>
+            <i class="ficon icon-huore"></i>
+            <div class="fontclass">.icon-huore</div>
+        </li>
+        <li>
+            <i class="ficon icon-31paishe"></i>
+            <div class="fontclass">.icon-31paishe</div>
+        </li>
+        <li>
+            <i class="ficon icon-rmb1"></i>
+            <div class="fontclass">.icon-rmb1</div>
+        </li>
+        <li>
+            <i class="ficon icon-clock"></i>
+            <div class="fontclass">.icon-clock</div>
+        </li>
+        <li>
+            <i class="ficon icon-lbsfill"></i>
+            <div class="fontclass">.icon-lbsfill</div>
+        </li>
+        <li>
+            <i class="ficon icon-lbs"></i>
+            <div class="fontclass">.icon-lbs</div>
+        </li>
+        <li>
+            <i class="ficon icon-msg2"></i>
+            <div class="fontclass">.icon-msg2</div>
+        </li>
+        <li>
+            <i class="ficon icon-paper-airplane"></i>
+            <div class="fontclass">.icon-paper-airplane</div>
+        </li>
+        <li>
+            <i class="ficon icon-link2"></i>
+            <div class="fontclass">.icon-link2</div>
+        </li>
+        <li>
+            <i class="ficon icon-sey-more"></i>
+            <div class="fontclass">.icon-sey-more</div>
+        </li>
+        <li>
+            <i class="ficon icon-xitongguanli"></i>
+            <div class="fontclass">.icon-xitongguanli</div>
+        </li>
+        <li>
+            <i class="ficon icon-node"></i>
+            <div class="fontclass">.icon-node</div>
+        </li>
+        <li>
+            <i class="ficon icon-tag"></i>
+            <div class="fontclass">.icon-tag</div>
+        </li>
+        <li>
+            <i class="ficon icon-icon26"></i>
+            <div class="fontclass">.icon-icon26</div>
+        </li>
+        <li>
+            <i class="ficon icon-icon27"></i>
+            <div class="fontclass">.icon-icon27</div>
+        </li>
+        <li>
+            <i class="ficon icon-05"></i>
+            <div class="fontclass">.icon-05</div>
+        </li>
+        <li>
+            <i class="ficon icon-more1"></i>
+            <div class="fontclass">.icon-more1</div>
+        </li>
+        <li>
+            <i class="ficon icon-jiedianlianjie"></i>
+            <div class="fontclass">.icon-jiedianlianjie</div>
+        </li>
+        <li>
+            <i class="ficon icon-iconset0401"></i>
+            <div class="fontclass">.icon-iconset0401</div>
+        </li>
+        <li>
+            <i class="ficon icon-iconset0448"></i>
+            <div class="fontclass">.icon-iconset0448</div>
+        </li>
+        <li>
+            <i class="ficon icon-danxuanfill"></i>
+            <div class="fontclass">.icon-danxuanfill</div>
+        </li>
+        <li>
+            <i class="ficon icon-danxuan"></i>
+            <div class="fontclass">.icon-danxuan</div>
+        </li>
+        <li>
+            <i class="ficon icon-fangxingweixuanzhong"></i>
+            <div class="fontclass">.icon-fangxingweixuanzhong</div>
+        </li>
+        <li>
+            <i class="ficon icon-fangxingxuanzhongfill"></i>
+            <div class="fontclass">.icon-fangxingxuanzhongfill</div>
+        </li>
+        <li>
+            <i class="ficon icon-fangxingxuanzhong"></i>
+            <div class="fontclass">.icon-fangxingxuanzhong</div>
+        </li>
+        <li>
+            <i class="ficon icon-gou"></i>
+            <div class="fontclass">.icon-gou</div>
+        </li>
+        <li>
+            <i class="ficon icon-wifi1"></i>
+            <div class="fontclass">.icon-wifi1</div>
+        </li>
+        <li>
+            <i class="ficon icon-unlink"></i>
+            <div class="fontclass">.icon-unlink</div>
+        </li>
+        <li>
+            <i class="ficon icon-ipsecvpn"></i>
+            <div class="fontclass">.icon-ipsecvpn</div>
+        </li>
+        <li>
+            <i class="ficon icon-app9"></i>
+            <div class="fontclass">.icon-app9</div>
+        </li>
+        <li>
+            <i class="ficon icon-jia"></i>
+            <div class="fontclass">.icon-jia</div>
+        </li>
+        <li>
+            <i class="ficon icon-jian"></i>
+            <div class="fontclass">.icon-jian</div>
+        </li>
+        <li>
+            <i class="ficon icon-jiantouarrow491"></i>
+            <div class="fontclass">.icon-jiantouarrow491</div>
+        </li>
+        <li>
+            <i class="ficon icon-msnui-service"></i>
+            <div class="fontclass">.icon-msnui-service</div>
+        </li>
+        <li>
+            <i class="ficon icon-msnui-history"></i>
+            <div class="fontclass">.icon-msnui-history</div>
+        </li>
+        <li>
+            <i class="ficon icon-xiangqu"></i>
+            <div class="fontclass">.icon-xiangqu</div>
+        </li>
+        <li>
+            <i class="ficon icon-xiangqufill"></i>
+            <div class="fontclass">.icon-xiangqufill</div>
+        </li>
+        <li>
+            <i class="ficon icon-qizhi"></i>
+            <div class="fontclass">.icon-qizhi</div>
+        </li>
+        <li>
+            <i class="ficon icon-sysinfo"></i>
+            <div class="fontclass">.icon-sysinfo</div>
+        </li>
+        <li>
+            <i class="ficon icon-zichanguanli"></i>
+            <div class="fontclass">.icon-zichanguanli</div>
+        </li>
+        <li>
+            <i class="ficon icon-zanting1"></i>
+            <div class="fontclass">.icon-zanting1</div>
+        </li>
+        <li>
+            <i class="ficon icon-huojian"></i>
+            <div class="fontclass">.icon-huojian</div>
+        </li>
+        <li>
+            <i class="ficon icon-xuniwangqia81"></i>
+            <div class="fontclass">.icon-xuniwangqia81</div>
+        </li>
+        <li>
+            <i class="ficon icon-kf"></i>
+            <div class="fontclass">.icon-kf</div>
+        </li>
+        <li>
+            <i class="ficon icon-xitongshezhi"></i>
+            <div class="fontclass">.icon-xitongshezhi</div>
+        </li>
+        <li>
+            <i class="ficon icon-huodong"></i>
+            <div class="fontclass">.icon-huodong</div>
+        </li>
+        <li>
+            <i class="ficon icon-xitongyunweiwenjianjia02"></i>
+            <div class="fontclass">.icon-xitongyunweiwenjianjia02</div>
+        </li>
+        <li>
+            <i class="ficon icon-xitong"></i>
+            <div class="fontclass">.icon-xitong</div>
+        </li>
+        <li>
+            <i class="ficon icon-app4"></i>
+            <div class="fontclass">.icon-app4</div>
+        </li>
+        <li>
+            <i class="ficon icon-ai-safe"></i>
+            <div class="fontclass">.icon-ai-safe</div>
+        </li>
+        <li>
+            <i class="ficon icon-xitongpeizhi2"></i>
+            <div class="fontclass">.icon-xitongpeizhi2</div>
+        </li>
+        <li>
+            <i class="ficon icon-meiyuan4"></i>
+            <div class="fontclass">.icon-meiyuan4</div>
+        </li>
+        <li>
+            <i class="ficon icon-yunbushu"></i>
+            <div class="fontclass">.icon-yunbushu</div>
+        </li>
+        <li>
+            <i class="ficon icon-more1_fill"></i>
+            <div class="fontclass">.icon-more1_fill</div>
+        </li>
+        <li>
+            <i class="ficon icon-shujutu"></i>
+            <div class="fontclass">.icon-shujutu</div>
+        </li>
+        <li>
+            <i class="ficon icon-shujuku"></i>
+            <div class="fontclass">.icon-shujuku</div>
+        </li>
+        <li>
+            <i class="ficon icon-unlink2"></i>
+            <div class="fontclass">.icon-unlink2</div>
+        </li>
+        <li>
+            <i class="ficon icon-start"></i>
+            <div class="fontclass">.icon-start</div>
+        </li>
+        <li>
+            <i class="ficon icon-pause"></i>
+            <div class="fontclass">.icon-pause</div>
+        </li>
+        <li>
+            <i class="ficon icon-ai70"></i>
+            <div class="fontclass">.icon-ai70</div>
+        </li>
+        <li>
+            <i class="ficon icon-zichan"></i>
+            <div class="fontclass">.icon-zichan</div>
+        </li>
+        <li>
+            <i class="ficon icon-xitongbushu"></i>
+            <div class="fontclass">.icon-xitongbushu</div>
+        </li>
+        <li>
+            <i class="ficon icon-bushufangan"></i>
+            <div class="fontclass">.icon-bushufangan</div>
+        </li>
+        <li>
+            <i class="ficon icon-yingyongfuwuqi"></i>
+            <div class="fontclass">.icon-yingyongfuwuqi</div>
+        </li>
+        <li>
+            <i class="ficon icon-xitongyonghumoshi"></i>
+            <div class="fontclass">.icon-xitongyonghumoshi</div>
+        </li>
+        <li>
+            <i class="ficon icon-centos"></i>
+            <div class="fontclass">.icon-centos</div>
+        </li>
+        <li>
+            <i class="ficon icon-ubuntu"></i>
+            <div class="fontclass">.icon-ubuntu</div>
+        </li>
+        <li>
+            <i class="ficon icon-iconrestart"></i>
+            <div class="fontclass">.icon-iconrestart</div>
+        </li>
+        <li>
+            <i class="ficon icon-videofill"></i>
+            <div class="fontclass">.icon-videofill</div>
+        </li>
+        <li>
+            <i class="ficon icon-video"></i>
+            <div class="fontclass">.icon-video</div>
+        </li>
+        <li>
+            <i class="ficon icon-link"></i>
+            <div class="fontclass">.icon-link</div>
+        </li>
+        <li>
+            <i class="ficon icon-exit"></i>
+            <div class="fontclass">.icon-exit</div>
+        </li>
+        <li>
+            <i class="ficon icon-caiwu"></i>
+            <div class="fontclass">.icon-caiwu</div>
+        </li>
+        <li>
+            <i class="ficon icon-bhjlink"></i>
+            <div class="fontclass">.icon-bhjlink</div>
+        </li>
+        <li>
+            <i class="ficon icon-link3"></i>
+            <div class="fontclass">.icon-link3</div>
+        </li>
+        <li>
+            <i class="ficon icon-unlink1"></i>
+            <div class="fontclass">.icon-unlink1</div>
+        </li>
+        <li>
+            <i class="ficon icon-link1"></i>
+            <div class="fontclass">.icon-link1</div>
+        </li>
+        <li>
+            <i class="ficon icon-stop"></i>
+            <div class="fontclass">.icon-stop</div>
+        </li>
+        <li>
+            <i class="ficon icon-shuju"></i>
+            <div class="fontclass">.icon-shuju</div>
+        </li>
+        <li>
+            <i class="ficon icon-msg"></i>
+            <div class="fontclass">.icon-msg</div>
+        </li>
+        <li>
+            <i class="ficon icon-monitor"></i>
+            <div class="fontclass">.icon-monitor</div>
+        </li>
+        <li>
+            <i class="ficon icon-ip"></i>
+            <div class="fontclass">.icon-ip</div>
+        </li>
+        <li>
+            <i class="ficon icon-cha"></i>
+            <div class="fontclass">.icon-cha</div>
+        </li>
+        <li>
+            <i class="ficon icon-cpu1"></i>
+            <div class="fontclass">.icon-cpu1</div>
+        </li>
+        <li>
+            <i class="ficon icon-icon_status-dot-small"></i>
+            <div class="fontclass">.icon-icon_status-dot-small</div>
+        </li>
+        <li>
+            <i class="ficon icon-icon_status-empty-dot"></i>
+            <div class="fontclass">.icon-icon_status-empty-dot</div>
+        </li>
+        <li>
+            <i class="ficon icon-icon_status-dot"></i>
+            <div class="fontclass">.icon-icon_status-dot</div>
+        </li>
+        <li>
+            <i class="ficon icon-icon_status-half-dot"></i>
+            <div class="fontclass">.icon-icon_status-half-dot</div>
+        </li>
+        <li>
+            <i class="ficon icon-dot3"></i>
+            <div class="fontclass">.icon-dot3</div>
+        </li>
+        <li>
+            <i class="ficon icon-game"></i>
+            <div class="fontclass">.icon-game</div>
+        </li>
+        <li>
+            <i class="ficon icon-processor"></i>
+            <div class="fontclass">.icon-processor</div>
+        </li>
+        <li>
+            <i class="ficon icon-games"></i>
+            <div class="fontclass">.icon-games</div>
+        </li>
+        <li>
+            <i class="ficon icon-yunweiguanli"></i>
+            <div class="fontclass">.icon-yunweiguanli</div>
+        </li>
+        <li>
+            <i class="ficon icon-gou1"></i>
+            <div class="fontclass">.icon-gou1</div>
+        </li>
+        <li>
+            <i class="ficon icon-cpu"></i>
+            <div class="fontclass">.icon-cpu</div>
+        </li>
+        <li>
+            <i class="ficon icon-form_search"></i>
+            <div class="fontclass">.icon-form_search</div>
+        </li>
+        <li>
+            <i class="ficon icon-ceshi"></i>
+            <div class="fontclass">.icon-ceshi</div>
+        </li>
+        <li>
+            <i class="ficon icon-search_list"></i>
+            <div class="fontclass">.icon-search_list</div>
+        </li>
+        <li>
+            <i class="ficon icon-win10"></i>
+            <div class="fontclass">.icon-win10</div>
+        </li>
+        <li>
+            <i class="ficon icon-fuwu-active"></i>
+            <div class="fontclass">.icon-fuwu-active</div>
+        </li>
+        <li>
+            <i class="ficon icon-fuwu"></i>
+            <div class="fontclass">.icon-fuwu</div>
+        </li>
+        <li>
+            <i class="ficon icon-network"></i>
+            <div class="fontclass">.icon-network</div>
+        </li>
+        <li>
+            <i class="ficon icon-appreciate_light"></i>
+            <div class="fontclass">.icon-appreciate_light</div>
+        </li>
+        <li>
+            <i class="ficon icon-favor_light"></i>
+            <div class="fontclass">.icon-favor_light</div>
+        </li>
+        <li>
+            <i class="ficon icon-appreciate_fill_light"></i>
+            <div class="fontclass">.icon-appreciate_fill_light</div>
+        </li>
+        <li>
+            <i class="ficon icon-favor_fill_light"></i>
+            <div class="fontclass">.icon-favor_fill_light</div>
+        </li>
+        <li>
+            <i class="ficon icon-tuiguang"></i>
+            <div class="fontclass">.icon-tuiguang</div>
+        </li>
+        <li>
+            <i class="ficon icon-round_close_light"></i>
+            <div class="fontclass">.icon-round_close_light</div>
+        </li>
+        <li>
+            <i class="ficon icon-round_close_fill_light"></i>
+            <div class="fontclass">.icon-round_close_fill_light</div>
+        </li>
+        <li>
+            <i class="ficon icon-hz"></i>
+            <div class="fontclass">.icon-hz</div>
+        </li>
+        <li>
+            <i class="ficon icon-hz-fill"></i>
+            <div class="fontclass">.icon-hz-fill</div>
+        </li>
+        <li>
+            <i class="ficon icon-zhuxiaoguanji"></i>
+            <div class="fontclass">.icon-zhuxiaoguanji</div>
+        </li>
+        <li>
+            <i class="ficon icon-shujuku1"></i>
+            <div class="fontclass">.icon-shujuku1</div>
+        </li>
+        <li>
+            <i class="ficon icon-server1"></i>
+            <div class="fontclass">.icon-server1</div>
+        </li>
+        <li>
+            <i class="ficon icon-linux"></i>
+            <div class="fontclass">.icon-linux</div>
+        </li>
+        <li>
+            <i class="ficon icon-rightarrow"></i>
+            <div class="fontclass">.icon-rightarrow</div>
+        </li>
+        <li>
+            <i class="ficon icon-rightarrow1"></i>
+            <div class="fontclass">.icon-rightarrow1</div>
+        </li>
+        <li>
+            <i class="ficon icon-downarrow"></i>
+            <div class="fontclass">.icon-downarrow</div>
+        </li>
+        <li>
+            <i class="ficon icon-uparrow"></i>
+            <div class="fontclass">.icon-uparrow</div>
+        </li>
+        <li>
+            <i class="ficon icon-rightarrows"></i>
+            <div class="fontclass">.icon-rightarrows</div>
+        </li>
+        <li>
+            <i class="ficon icon-leftarrows"></i>
+            <div class="fontclass">.icon-leftarrows</div>
+        </li>
+        <li>
+            <i class="ficon icon-downarrows"></i>
+            <div class="fontclass">.icon-downarrows</div>
+        </li>
+        <li>
+            <i class="ficon icon-uparrows"></i>
+            <div class="fontclass">.icon-uparrows</div>
+        </li>
+        <li>
+            <i class="ficon icon-leftarrowhead"></i>
+            <div class="fontclass">.icon-leftarrowhead</div>
+        </li>
+        <li>
+            <i class="ficon icon-arrowheadright"></i>
+            <div class="fontclass">.icon-arrowheadright</div>
+        </li>
+        <li>
+            <i class="ficon icon-rightarrowheads"></i>
+            <div class="fontclass">.icon-rightarrowheads</div>
+        </li>
+        <li>
+            <i class="ficon icon-leftarrowheads"></i>
+            <div class="fontclass">.icon-leftarrowheads</div>
+        </li>
+        <li>
+            <i class="ficon icon-downarrow1"></i>
+            <div class="fontclass">.icon-downarrow1</div>
+        </li>
+        <li>
+            <i class="ficon icon-uparrowheads"></i>
+            <div class="fontclass">.icon-uparrowheads</div>
+        </li>
+        <li>
+            <i class="ficon icon-hezuo"></i>
+            <div class="fontclass">.icon-hezuo</div>
+        </li>
+        <li>
+            <i class="ficon icon-wangluo"></i>
+            <div class="fontclass">.icon-wangluo</div>
+        </li>
+        <li>
+            <i class="ficon icon-yuangongcaiwubaobiao"></i>
+            <div class="fontclass">.icon-yuangongcaiwubaobiao</div>
+        </li>
+        <li>
+            <i class="ficon icon-port"></i>
+            <div class="fontclass">.icon-port</div>
+        </li>
+        <li>
+            <i class="ficon icon-fuwuqi1"></i>
+            <div class="fontclass">.icon-fuwuqi1</div>
+        </li>
+        <li>
+            <i class="ficon icon-fuwuqi2"></i>
+            <div class="fontclass">.icon-fuwuqi2</div>
+        </li>
+        <li>
+            <i class="ficon icon-fuwuqi3"></i>
+            <div class="fontclass">.icon-fuwuqi3</div>
+        </li>
+        <li>
+            <i class="ficon icon-yunfuwuqi"></i>
+            <div class="fontclass">.icon-yunfuwuqi</div>
+        </li>
+        <li>
+            <i class="ficon icon-testbug"></i>
+            <div class="fontclass">.icon-testbug</div>
+        </li>
+        <li>
+            <i class="ficon icon-reboot"></i>
+            <div class="fontclass">.icon-reboot</div>
+        </li>
+        <li>
+            <i class="ficon icon-fuwuqi4"></i>
+            <div class="fontclass">.icon-fuwuqi4</div>
+        </li>
+        <li>
+            <i class="ficon icon-sync"></i>
+            <div class="fontclass">.icon-sync</div>
+        </li>
+        <li>
+            <i class="ficon icon-link4"></i>
+            <div class="fontclass">.icon-link4</div>
+        </li>
+        <li>
+            <i class="ficon icon-folder"></i>
+            <div class="fontclass">.icon-folder</div>
+        </li>
+        <li>
+            <i class="ficon icon-youxi1"></i>
+            <div class="fontclass">.icon-youxi1</div>
+        </li>
+        <li>
+            <i class="ficon icon-guanjioff"></i>
+            <div class="fontclass">.icon-guanjioff</div>
+        </li>
+        <li>
+            <i class="ficon icon-guanjion"></i>
+            <div class="fontclass">.icon-guanjion</div>
+        </li>
+        <li>
+            <i class="ficon icon-shuju1"></i>
+            <div class="fontclass">.icon-shuju1</div>
+        </li>
+        <li>
+            <i class="ficon icon-rizhiguanli"></i>
+            <div class="fontclass">.icon-rizhiguanli</div>
+        </li>
+        <li>
+            <i class="ficon icon-unwifi"></i>
+            <div class="fontclass">.icon-unwifi</div>
+        </li>
+        <li>
+            <i class="ficon icon-refresh"></i>
+            <div class="fontclass">.icon-refresh</div>
+        </li>
+        <li>
+            <i class="ficon icon-shujubiao"></i>
+            <div class="fontclass">.icon-shujubiao</div>
+        </li>
+        <li>
+            <i class="ficon icon-rizhi"></i>
+            <div class="fontclass">.icon-rizhi</div>
+        </li>
+        <li>
+            <i class="ficon icon-tingzhi"></i>
+            <div class="fontclass">.icon-tingzhi</div>
+        </li>
+        <li>
+            <i class="ficon icon-6"></i>
+            <div class="fontclass">.icon-6</div>
+        </li>
+        <li>
+            <i class="ficon icon-7"></i>
+            <div class="fontclass">.icon-7</div>
+        </li>
+        <li>
+            <i class="ficon icon-9"></i>
+            <div class="fontclass">.icon-9</div>
+        </li>
+        <li>
+            <i class="ficon icon-0"></i>
+            <div class="fontclass">.icon-0</div>
+        </li>
+        <li>
+            <i class="ficon icon-3"></i>
+            <div class="fontclass">.icon-3</div>
+        </li>
+        <li>
+            <i class="ficon icon-1"></i>
+            <div class="fontclass">.icon-1</div>
+        </li>
+        <li>
+            <i class="ficon icon-4"></i>
+            <div class="fontclass">.icon-4</div>
+        </li>
+        <li>
+            <i class="ficon icon-8"></i>
+            <div class="fontclass">.icon-8</div>
+        </li>
+        <li>
+            <i class="ficon icon-coa"></i>
+            <div class="fontclass">.icon-coa</div>
+        </li>
+        <li>
+            <i class="ficon icon-5"></i>
+            <div class="fontclass">.icon-5</div>
+        </li>
+        <li>
+            <i class="ficon icon-2"></i>
+            <div class="fontclass">.icon-2</div>
+        </li>
+        <li>
+            <i class="ficon icon-process"></i>
+            <div class="fontclass">.icon-process</div>
+        </li>
+        <li>
+            <i class="ficon icon-arrow-down"></i>
+            <div class="fontclass">.icon-arrow-down</div>
+        </li>
+        <li>
+            <i class="ficon icon-arrow-right"></i>
+            <div class="fontclass">.icon-arrow-right</div>
+        </li>
+        <li>
+            <i class="ficon icon-arrow-left"></i>
+            <div class="fontclass">.icon-arrow-left</div>
+        </li>
+        <li>
+            <i class="ficon icon-arrow-up"></i>
+            <div class="fontclass">.icon-arrow-up</div>
+        </li>
+        <li>
+            <i class="ficon icon-xiaozhan"></i>
+            <div class="fontclass">.icon-xiaozhan</div>
+        </li>
+        <li>
+            <i class="ficon icon-xitonganquan"></i>
+            <div class="fontclass">.icon-xitonganquan</div>
+        </li>
+        <li>
+            <i class="ficon icon-dangqianhuodonggaojing"></i>
+            <div class="fontclass">.icon-dangqianhuodonggaojing</div>
+        </li>
+        <li>
+            <i class="ficon icon-xitongguanli1"></i>
+            <div class="fontclass">.icon-xitongguanli1</div>
+        </li>
+        <li>
+            <i class="ficon icon-oppose_fill_light"></i>
+            <div class="fontclass">.icon-oppose_fill_light</div>
+        </li>
+        <li>
+            <i class="ficon icon-oppose_light"></i>
+            <div class="fontclass">.icon-oppose_light</div>
+        </li>
+        <li>
+            <i class="ficon icon-pc"></i>
+            <div class="fontclass">.icon-pc</div>
+        </li>
+        <li>
+            <i class="ficon icon-biaoqian"></i>
+            <div class="fontclass">.icon-biaoqian</div>
+        </li>
+        <li>
+            <i class="ficon icon-bukejian"></i>
+            <div class="fontclass">.icon-bukejian</div>
+        </li>
+        <li>
+            <i class="ficon icon-biaoqian1"></i>
+            <div class="fontclass">.icon-biaoqian1</div>
+        </li>
+        <li>
+            <i class="ficon icon-bingzhuangtu"></i>
+            <div class="fontclass">.icon-bingzhuangtu</div>
+        </li>
+        <li>
+            <i class="ficon icon-bianji"></i>
+            <div class="fontclass">.icon-bianji</div>
+        </li>
+        <li>
+            <i class="ficon icon-cunchuqia"></i>
+            <div class="fontclass">.icon-cunchuqia</div>
+        </li>
+        <li>
+            <i class="ficon icon-dakaiquanxian"></i>
+            <div class="fontclass">.icon-dakaiquanxian</div>
+        </li>
+        <li>
+            <i class="ficon icon-dingdan"></i>
+            <div class="fontclass">.icon-dingdan</div>
+        </li>
+        <li>
+            <i class="ficon icon-dingwei"></i>
+            <div class="fontclass">.icon-dingwei</div>
+        </li>
+        <li>
+            <i class="ficon icon-fanhui"></i>
+            <div class="fontclass">.icon-fanhui</div>
+        </li>
+        <li>
+            <i class="ficon icon-fenxiang"></i>
+            <div class="fontclass">.icon-fenxiang</div>
+        </li>
+        <li>
+            <i class="ficon icon-fujian"></i>
+            <div class="fontclass">.icon-fujian</div>
+        </li>
+        <li>
+            <i class="ficon icon-fuwuqi5"></i>
+            <div class="fontclass">.icon-fuwuqi5</div>
+        </li>
+        <li>
+            <i class="ficon icon-faxian"></i>
+            <div class="fontclass">.icon-faxian</div>
+        </li>
+        <li>
+            <i class="ficon icon-gengduo"></i>
+            <div class="fontclass">.icon-gengduo</div>
+        </li>
+        <li>
+            <i class="ficon icon-gonggao"></i>
+            <div class="fontclass">.icon-gonggao</div>
+        </li>
+        <li>
+            <i class="ficon icon-guanzhu"></i>
+            <div class="fontclass">.icon-guanzhu</div>
+        </li>
+        <li>
+            <i class="ficon icon-guoji"></i>
+            <div class="fontclass">.icon-guoji</div>
+        </li>
+        <li>
+            <i class="ficon icon-huiyuan"></i>
+            <div class="fontclass">.icon-huiyuan</div>
+        </li>
+        <li>
+            <i class="ficon icon-jinqian"></i>
+            <div class="fontclass">.icon-jinqian</div>
+        </li>
+        <li>
+            <i class="ficon icon-kejian"></i>
+            <div class="fontclass">.icon-kejian</div>
+        </li>
+        <li>
+            <i class="ficon icon-jingbao"></i>
+            <div class="fontclass">.icon-jingbao</div>
+        </li>
+        <li>
+            <i class="ficon icon-kehu"></i>
+            <div class="fontclass">.icon-kehu</div>
+        </li>
+        <li>
+            <i class="ficon icon-lianxiren"></i>
+            <div class="fontclass">.icon-lianxiren</div>
+        </li>
+        <li>
+            <i class="ficon icon-kefu"></i>
+            <div class="fontclass">.icon-kefu</div>
+        </li>
+        <li>
+            <i class="ficon icon-mima"></i>
+            <div class="fontclass">.icon-mima</div>
+        </li>
+        <li>
+            <i class="ficon icon-qidong"></i>
+            <div class="fontclass">.icon-qidong</div>
+        </li>
+        <li>
+            <i class="ficon icon-pinglun"></i>
+            <div class="fontclass">.icon-pinglun</div>
+        </li>
+        <li>
+            <i class="ficon icon-qunzu"></i>
+            <div class="fontclass">.icon-qunzu</div>
+        </li>
+        <li>
+            <i class="ficon icon-shanchu"></i>
+            <div class="fontclass">.icon-shanchu</div>
+        </li>
+        <li>
+            <i class="ficon icon-saoma"></i>
+            <div class="fontclass">.icon-saoma</div>
+        </li>
+        <li>
+            <i class="ficon icon-shangpin"></i>
+            <div class="fontclass">.icon-shangpin</div>
+        </li>
+        <li>
+            <i class="ficon icon-rili"></i>
+            <div class="fontclass">.icon-rili</div>
+        </li>
+        <li>
+            <i class="ficon icon-shezhi"></i>
+            <div class="fontclass">.icon-shezhi</div>
+        </li>
+        <li>
+            <i class="ficon icon-shijianxuanzeqi"></i>
+            <div class="fontclass">.icon-shijianxuanzeqi</div>
+        </li>
+        <li>
+            <i class="ficon icon-shoucang"></i>
+            <div class="fontclass">.icon-shoucang</div>
+        </li>
+        <li>
+            <i class="ficon icon-sousuo"></i>
+            <div class="fontclass">.icon-sousuo</div>
+        </li>
+        <li>
+            <i class="ficon icon-shuaxin"></i>
+            <div class="fontclass">.icon-shuaxin</div>
+        </li>
+        <li>
+            <i class="ficon icon-tishi"></i>
+            <div class="fontclass">.icon-tishi</div>
+        </li>
+        <li>
+            <i class="ficon icon-tianjiahaoyou"></i>
+            <div class="fontclass">.icon-tianjiahaoyou</div>
+        </li>
+        <li>
+            <i class="ficon icon-tianjia"></i>
+            <div class="fontclass">.icon-tianjia</div>
+        </li>
+        <li>
+            <i class="ficon icon-wancheng"></i>
+            <div class="fontclass">.icon-wancheng</div>
+        </li>
+        <li>
+            <i class="ficon icon-wenjianjia"></i>
+            <div class="fontclass">.icon-wenjianjia</div>
+        </li>
+        <li>
+            <i class="ficon icon-tupian"></i>
+            <div class="fontclass">.icon-tupian</div>
+        </li>
+        <li>
+            <i class="ficon icon-wenjian"></i>
+            <div class="fontclass">.icon-wenjian</div>
+        </li>
+        <li>
+            <i class="ficon icon-wode"></i>
+            <div class="fontclass">.icon-wode</div>
+        </li>
+        <li>
+            <i class="ficon icon-youjian"></i>
+            <div class="fontclass">.icon-youjian</div>
+        </li>
+        <li>
+            <i class="ficon icon-zhengjian"></i>
+            <div class="fontclass">.icon-zhengjian</div>
+        </li>
+        <li>
+            <i class="ficon icon-zhexiantu"></i>
+            <div class="fontclass">.icon-zhexiantu</div>
+        </li>
+        <li>
+            <i class="ficon icon-zhuye"></i>
+            <div class="fontclass">.icon-zhuye</div>
+        </li>
+        <li>
+            <i class="ficon icon-zhuzhuangtu"></i>
+            <div class="fontclass">.icon-zhuzhuangtu</div>
+        </li>
+        <li>
+            <i class="ficon icon-zixun"></i>
+            <div class="fontclass">.icon-zixun</div>
+        </li>
+        <li>
+            <i class="ficon icon-fenxiaoguanli"></i>
+            <div class="fontclass">.icon-fenxiaoguanli</div>
+        </li>
+        <li>
+            <i class="ficon icon-yonghuguanli"></i>
+            <div class="fontclass">.icon-yonghuguanli</div>
+        </li>
+        <li>
+            <i class="ficon icon-xiangshangjiantou"></i>
+            <div class="fontclass">.icon-xiangshangjiantou</div>
+        </li>
+        <li>
+            <i class="ficon icon-xiangxiajiantou"></i>
+            <div class="fontclass">.icon-xiangxiajiantou</div>
+        </li>
+        <li>
+            <i class="ficon icon-xiangyoujiantou"></i>
+            <div class="fontclass">.icon-xiangyoujiantou</div>
+        </li>
+        <li>
+            <i class="ficon icon-xiangzuojiantou"></i>
+            <div class="fontclass">.icon-xiangzuojiantou</div>
+        </li>
+        <li>
+            <i class="ficon icon-dict"></i>
+            <div class="fontclass">.icon-dict</div>
+        </li>
+        <li>
+            <i class="ficon icon-ipip"></i>
+            <div class="fontclass">.icon-ipip</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-reply-fill"></i>
+            <div class="fontclass">.layui-icon-reply-fill</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-set-fill"></i>
+            <div class="fontclass">.layui-icon-set-fill</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-menu-fill"></i>
+            <div class="fontclass">.layui-icon-menu-fill</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-search"></i>
+            <div class="fontclass">.layui-icon-search</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-share"></i>
+            <div class="fontclass">.layui-icon-share</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-set-sm"></i>
+            <div class="fontclass">.layui-icon-set-sm</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-engine"></i>
+            <div class="fontclass">.layui-icon-engine</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-close"></i>
+            <div class="fontclass">.layui-icon-close</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-close-fill"></i>
+            <div class="fontclass">.layui-icon-close-fill</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-chart-screen"></i>
+            <div class="fontclass">.layui-icon-chart-screen</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-star"></i>
+            <div class="fontclass">.layui-icon-star</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-circle-dot"></i>
+            <div class="fontclass">.layui-icon-circle-dot</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-chat"></i>
+            <div class="fontclass">.layui-icon-chat</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-release"></i>
+            <div class="fontclass">.layui-icon-release</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-list"></i>
+            <div class="fontclass">.layui-icon-list</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-chart"></i>
+            <div class="fontclass">.layui-icon-chart</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-ok-circle"></i>
+            <div class="fontclass">.layui-icon-ok-circle</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-layim-theme"></i>
+            <div class="fontclass">.layui-icon-layim-theme</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-table"></i>
+            <div class="fontclass">.layui-icon-table</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-right"></i>
+            <div class="fontclass">.layui-icon-right</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-left"></i>
+            <div class="fontclass">.layui-icon-left</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-cart-simple"></i>
+            <div class="fontclass">.layui-icon-cart-simple</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-face-cry"></i>
+            <div class="fontclass">.layui-icon-face-cry</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-face-smile"></i>
+            <div class="fontclass">.layui-icon-face-smile</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-survey"></i>
+            <div class="fontclass">.layui-icon-survey</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-tree"></i>
+            <div class="fontclass">.layui-icon-tree</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-upload-circle"></i>
+            <div class="fontclass">.layui-icon-upload-circle</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-add-circle"></i>
+            <div class="fontclass">.layui-icon-add-circle</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-download-circle"></i>
+            <div class="fontclass">.layui-icon-download-circle</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-templeate-1"></i>
+            <div class="fontclass">.layui-icon-templeate-1</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-util"></i>
+            <div class="fontclass">.layui-icon-util</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-face-surprised"></i>
+            <div class="fontclass">.layui-icon-face-surprised</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-edit"></i>
+            <div class="fontclass">.layui-icon-edit</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-speaker"></i>
+            <div class="fontclass">.layui-icon-speaker</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-down"></i>
+            <div class="fontclass">.layui-icon-down</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-file"></i>
+            <div class="fontclass">.layui-icon-file</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-layouts"></i>
+            <div class="fontclass">.layui-icon-layouts</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-rate-half"></i>
+            <div class="fontclass">.layui-icon-rate-half</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-add-circle-fine"></i>
+            <div class="fontclass">.layui-icon-add-circle-fine</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-prev-circle"></i>
+            <div class="fontclass">.layui-icon-prev-circle</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-read"></i>
+            <div class="fontclass">.layui-icon-read</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-404"></i>
+            <div class="fontclass">.layui-icon-404</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-carousel"></i>
+            <div class="fontclass">.layui-icon-carousel</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-help"></i>
+            <div class="fontclass">.layui-icon-help</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-code-circle"></i>
+            <div class="fontclass">.layui-icon-code-circle</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-water"></i>
+            <div class="fontclass">.layui-icon-water</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-username"></i>
+            <div class="fontclass">.layui-icon-username</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-find-fill"></i>
+            <div class="fontclass">.layui-icon-find-fill</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-about"></i>
+            <div class="fontclass">.layui-icon-about</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-location"></i>
+            <div class="fontclass">.layui-icon-location</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-up"></i>
+            <div class="fontclass">.layui-icon-up</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-pause"></i>
+            <div class="fontclass">.layui-icon-pause</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-date"></i>
+            <div class="fontclass">.layui-icon-date</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-layim-uploadfile"></i>
+            <div class="fontclass">.layui-icon-layim-uploadfile</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-delete"></i>
+            <div class="fontclass">.layui-icon-delete</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-play"></i>
+            <div class="fontclass">.layui-icon-play</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-top"></i>
+            <div class="fontclass">.layui-icon-top</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-friends"></i>
+            <div class="fontclass">.layui-icon-friends</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-refresh-3"></i>
+            <div class="fontclass">.layui-icon-refresh-3</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-ok"></i>
+            <div class="fontclass">.layui-icon-ok</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-layer"></i>
+            <div class="fontclass">.layui-icon-layer</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-face-smile-fine"></i>
+            <div class="fontclass">.layui-icon-face-smile-fine</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-dollar"></i>
+            <div class="fontclass">.layui-icon-dollar</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-group"></i>
+            <div class="fontclass">.layui-icon-group</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-layim-download"></i>
+            <div class="fontclass">.layui-icon-layim-download</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-picture-fine"></i>
+            <div class="fontclass">.layui-icon-picture-fine</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-link"></i>
+            <div class="fontclass">.layui-icon-link</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-diamond"></i>
+            <div class="fontclass">.layui-icon-diamond</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-log"></i>
+            <div class="fontclass">.layui-icon-log</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-rate-solid"></i>
+            <div class="fontclass">.layui-icon-rate-solid</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-fonts-del"></i>
+            <div class="fontclass">.layui-icon-fonts-del</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-unlink"></i>
+            <div class="fontclass">.layui-icon-unlink</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-fonts-clear"></i>
+            <div class="fontclass">.layui-icon-fonts-clear</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-triangle-r"></i>
+            <div class="fontclass">.layui-icon-triangle-r</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-circle"></i>
+            <div class="fontclass">.layui-icon-circle</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-radio"></i>
+            <div class="fontclass">.layui-icon-radio</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-align-center"></i>
+            <div class="fontclass">.layui-icon-align-center</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-align-right"></i>
+            <div class="fontclass">.layui-icon-align-right</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-align-left"></i>
+            <div class="fontclass">.layui-icon-align-left</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-loading-1"></i>
+            <div class="fontclass">.layui-icon-loading-1</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-return"></i>
+            <div class="fontclass">.layui-icon-return</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-fonts-strong"></i>
+            <div class="fontclass">.layui-icon-fonts-strong</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-upload"></i>
+            <div class="fontclass">.layui-icon-upload</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-dialogue"></i>
+            <div class="fontclass">.layui-icon-dialogue</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-video"></i>
+            <div class="fontclass">.layui-icon-video</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-headset"></i>
+            <div class="fontclass">.layui-icon-headset</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-cellphone-fine"></i>
+            <div class="fontclass">.layui-icon-cellphone-fine</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-add-1"></i>
+            <div class="fontclass">.layui-icon-add-1</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-face-smile-b"></i>
+            <div class="fontclass">.layui-icon-face-smile-b</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-fonts-html"></i>
+            <div class="fontclass">.layui-icon-fonts-html</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-form"></i>
+            <div class="fontclass">.layui-icon-form</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-cart"></i>
+            <div class="fontclass">.layui-icon-cart</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-camera-fill"></i>
+            <div class="fontclass">.layui-icon-camera-fill</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-tabs"></i>
+            <div class="fontclass">.layui-icon-tabs</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-fonts-code"></i>
+            <div class="fontclass">.layui-icon-fonts-code</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-fire"></i>
+            <div class="fontclass">.layui-icon-fire</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-set"></i>
+            <div class="fontclass">.layui-icon-set</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-fonts-u"></i>
+            <div class="fontclass">.layui-icon-fonts-u</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-triangle-d"></i>
+            <div class="fontclass">.layui-icon-triangle-d</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-tips"></i>
+            <div class="fontclass">.layui-icon-tips</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-picture"></i>
+            <div class="fontclass">.layui-icon-picture</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-more-vertical"></i>
+            <div class="fontclass">.layui-icon-more-vertical</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-flag"></i>
+            <div class="fontclass">.layui-icon-flag</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-loading"></i>
+            <div class="fontclass">.layui-icon-loading</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-fonts-i"></i>
+            <div class="fontclass">.layui-icon-fonts-i</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-refresh-1"></i>
+            <div class="fontclass">.layui-icon-refresh-1</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-rmb"></i>
+            <div class="fontclass">.layui-icon-rmb</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-home"></i>
+            <div class="fontclass">.layui-icon-home</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-user"></i>
+            <div class="fontclass">.layui-icon-user</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-notice"></i>
+            <div class="fontclass">.layui-icon-notice</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-login-weibo"></i>
+            <div class="fontclass">.layui-icon-login-weibo</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-voice"></i>
+            <div class="fontclass">.layui-icon-voice</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-upload-drag"></i>
+            <div class="fontclass">.layui-icon-upload-drag</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-login-qq"></i>
+            <div class="fontclass">.layui-icon-login-qq</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-snowflake"></i>
+            <div class="fontclass">.layui-icon-snowflake</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-file-b"></i>
+            <div class="fontclass">.layui-icon-file-b</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-template"></i>
+            <div class="fontclass">.layui-icon-template</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-auz"></i>
+            <div class="fontclass">.layui-icon-auz</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-console"></i>
+            <div class="fontclass">.layui-icon-console</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-app"></i>
+            <div class="fontclass">.layui-icon-app</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-prev"></i>
+            <div class="fontclass">.layui-icon-prev</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-website"></i>
+            <div class="fontclass">.layui-icon-website</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-next"></i>
+            <div class="fontclass">.layui-icon-next</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-component"></i>
+            <div class="fontclass">.layui-icon-component</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-more"></i>
+            <div class="fontclass">.layui-icon-more</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-login-wechat"></i>
+            <div class="fontclass">.layui-icon-login-wechat</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-shrink-right"></i>
+            <div class="fontclass">.layui-icon-shrink-right</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-spread-left"></i>
+            <div class="fontclass">.layui-icon-spread-left</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-camera"></i>
+            <div class="fontclass">.layui-icon-camera</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-note"></i>
+            <div class="fontclass">.layui-icon-note</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-refresh"></i>
+            <div class="fontclass">.layui-icon-refresh</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-female"></i>
+            <div class="fontclass">.layui-icon-female</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-male"></i>
+            <div class="fontclass">.layui-icon-male</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-password"></i>
+            <div class="fontclass">.layui-icon-password</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-senior"></i>
+            <div class="fontclass">.layui-icon-senior</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-theme"></i>
+            <div class="fontclass">.layui-icon-theme</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-tread"></i>
+            <div class="fontclass">.layui-icon-tread</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-praise"></i>
+            <div class="fontclass">.layui-icon-praise</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-star-fill"></i>
+            <div class="fontclass">.layui-icon-star-fill</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-rate"></i>
+            <div class="fontclass">.layui-icon-rate</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-template-1"></i>
+            <div class="fontclass">.layui-icon-template-1</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-vercode"></i>
+            <div class="fontclass">.layui-icon-vercode</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-cellphone"></i>
+            <div class="fontclass">.layui-icon-cellphone</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-screen-full"></i>
+            <div class="fontclass">.layui-icon-screen-full</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-screen-restore"></i>
+            <div class="fontclass">.layui-icon-screen-restore</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-cols"></i>
+            <div class="fontclass">.layui-icon-cols</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-export"></i>
+            <div class="fontclass">.layui-icon-export</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-print"></i>
+            <div class="fontclass">.layui-icon-print</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-slider"></i>
+            <div class="fontclass">.layui-icon-slider</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-addition"></i>
+            <div class="fontclass">.layui-icon-addition</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-subtraction"></i>
+            <div class="fontclass">.layui-icon-subtraction</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-service"></i>
+            <div class="fontclass">.layui-icon-service</div>
+        </li>
+        <li>
+            <i class="layui-icon layui-icon-transfer"></i>
+            <div class="fontclass">.layui-icon-transfer</div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

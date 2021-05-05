@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xml:lang="zh-CN" class="full">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="csrf-token"
+          content="IjczMmQzZjE1NGUxOGZmYmM1MWIwMTc3NDcxZDlkMzBmNjc3ZDZjODgi.YJILsA.NSCjXkzalSNBZmHMjecqCfeQELQ">
+    <link rel="stylesheet" href="../dist/css/layui.css">
+    <link rel="stylesheet" href="../dist/css/layui-ff.css">
+    <style>
+        /**此处样式仅为实现该页面效果, 与示例的表格效果无关*/
+        html, body {
+            background: #f0f2f5;
+            background-size: 100%
+        }
+
+        .header {
+            height: 59px;
+            border-bottom: 1px solid #404553;
+            background-color: #393d49
+        }
+
+        .logo {
+            position: absolute;
+            top: 4px;
+            left: 5px;
+            width: 200px;
+            height: 50px;
+            background-size: cover;
+            text-align: center;
+            text-indent: -999em;
+        }
+
+        .layui-nav-child dd hr {
+            margin: 0
+        }
+
+        .header .layui-nav .layui-nav-item a.icon-md {
+            padding: 0 15px 0 40px
+        }
+
+        .header .layui-nav .layui-nav-item a.icon-md .layui-icon, .header .layui-nav .layui-nav-item a.icon-md .ficon {
+            font-size: 16px;
+            padding-right: 10px;
+            position: absolute;
+            left: 17px;
+            top: 0
+        }
+
+        .full, .full body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .panel {
+            margin-bottom: 15px;
+            border-radius: 2px;
+            background-color: #fff;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05)
+        }
+
+        .panel-title {
+            position: relative;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 20px;
+            border-bottom: 1px dotted #e9e9e9;
+            color: #333;
+            border-radius: 2px 2px 0 0;
+            font-size: 14px
+        }
+
+        .panel-box {
+            padding: 20px
+        }
+
+        .panel-box .layui-table, .layui-table-view {
+            margin: 0
+        }
+
+        .layui-form-select dl {
+            max-height: 255px;
+        }
+
+        .layer-pop .layui-form-select dl {
+            max-height: 200px;
+        }
+
+        .layui-form-pane .form-label-lg {
+            width: 160px;
+        }
+
+        .layui-form-pane .input-inline-lg {
+            width: 450px;
+        }
+
+        .layui-form-pane .input-inline-sm {
+            width: 140px;
+        }
+
+        .layui-form-pane .input-block-mr10 {
+            margin-right: 15px;
+        }
+
+        .panel-title .layui-form .layui-inline, .layer-pop .layui-form .layui-inline {
+            margin-right: 10px;
+        }
+
+        .input-sm {
+            width: 100px;
+            min-width: inherit !important;
+        }
+
+        .input-xs {
+            width: 60px;
+            min-width: inherit !important;
+        }
+
+        .c-primary input.layui-unselect {
+            color: #62a8ea;
+        }
+
+        .center input.layui-unselect {
+            text-align: center;
+        }
+
+        .input-after-panel, .input-before-panel {
+            float: left;
+            display: block;
+            font-weight: 400;
+            padding: 8px 10px;
+            height: 38px;
+            line-height: 20px;
+            border: 1px solid #e6e6e6;
+            border-left-width: 0;
+            border-radius: 2px 0 0 2px;
+            text-align: center;
+            overflow: hidden;
+            box-sizing: border-box;
+            margin-left: -7px;
+            background-color: rgba(243, 247, 249, .3);
+        }
+
+        .input-before-panel {
+            margin-left: 0;
+            margin-right: -8px;
+            border-width: 1px 0 1px 1px;
+        }
+
+        .popup-box {
+            padding: 15px 15px 0;
+        }
+
+        .popup-box q {
+            color: #1e9fff;
+            font-weight: 500;
+        }
+
+        .layui-layout-admin .layui-body, .layui-layout-admin .layui-footer, .layui-layout-admin .layui-side {
+            transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -ms-transition: all 0.3s ease-in-out;
+        }
+
+        /*.hide-side-nav .layui-side { left: -200px; }
+        .hide-side-nav .layui-body, .hide-side-nav .layui-footer { left: 0; }*/
+        .layui-table-tool-temp .layui-btn {
+            margin-bottom: 3px;
+        }
+
+        .layer-pop {
+            padding: 20px;
+            max-width: 100%;
+            display: none;
+        }
+
+        .popup-box {
+            padding: 15px 15px 0;
+        }
+
+        .popup-box q {
+            color: #1e9fff;
+            font-weight: 500;
+        }
+
+        .pop-notice {
+            padding: 40px;
+            background-color: #393d49;
+            font-size: 14px;
+            color: #fff;
+            font-weight: 300;
+            line-height: 1.5
+        }
+
+        .pop-notice b {
+            color: #f6bb42;
+            font-weight: normal;
+        }
+
+        .pop-notice hr {
+            background-color: #534a43;
+        }
+
+        .popup-box {
+            padding: 15px 15px 0;
+        }
+
+        .popup-box q {
+            color: #3498db;
+            font-weight: 500;
+        }
+
+        .fieldset-sm {
+        }
+
+        .fieldset-sm legend {
+            font-size: 14px;
+            color: #269b8f;
+        }
+
+        .fieldset-sm .layui-btn, .fieldset-sm .layui-btn-group {
+            margin: 2px;
+        }
+
+        .fieldset-sm .layui-btn-group .layui-btn {
+            border-left-width: 0;
+        }
+
+        .code-table .copy-txt {
+            margin: 3px 0;
+            font-size: 16px;
+        }
+
+        .code-table .layui-btn-group:first-child {
+            margin-left: 10px;
+        }
+
+        .div-labels a {
+            color: #aaa;
+            font-size: 14px;
+            border-bottom: 2px solid #C3E1E5;
+            text-decoration: none;
+            line-height: 1;
+            padding: 0 4px;
+        }
+
+        .div-labels a:hover {
+            color: #252525;
+            -webkit-transition: box-shadow .2s linear;
+            transition: box-shadow .2s linear;
+            box-shadow: inset 0 -10px #77d6e1;
+        }
+
+        .none {
+            display: none;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .fleft {
+            float: left !important;
+        }
+
+        .fright {
+            float: right !important;
+        }
+
+        .mt15 {
+            margin-top: 15px !important;
+        }
+    </style>
+    <title>BGP 管理 - FF.PyAdmin</title>
+</head>
+<body>
+<div class="layui-header header">
+    <div class="layui-fluid">
+        <a href="#" class="logo">主页</a>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="https://github.com/fufuok/FF.PyAdmin" class="icon-md"><i
+                        class="ficon icon-xitongguanli"></i>BGP 管理</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="#" class="icon-md"><i
+                        class="ficon icon-iconset0401"></i>ASN 管理</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="#" class="icon-md"><i
+                        class="ficon icon-wode1"></i>用户管理</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="#" class="icon-md"><i
+                        class="ficon icon-dingdan"></i>日志查询</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:void(0);"><i class="ficon icon-favor_fill_light"></i> 常用工具</a>
+                <dl class="layui-nav-child">
+                    <dd><a target="_blank" href="https://github.com/fufuok">GitHub</a></dd>
+                    <dd><a target="_blank" href="https://gitee.com/fufuok">Gitee</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:void(0);">
+                    <span class="layui-hide-xs">Fufu</span>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="#">重新登录</a></dd>
+                    <dd>
+                        <hr>
+                    </dd>
+                    <dd><a href="#">安全退出</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="layui-fluid mt15 layui-anim layui-anim-upbit">
+    <div class="layui-row body-box">
+        <div class="panel">
+            <div class="panel-title">
+                <h3 class="fleft">
+                    BGP 管理
+                    <span class="layui-badge-rim c-green font-iosevka">
+                    BGP IP 及关联 ASN 管理
+                </span>
+                </h3>
+                <div class="fright">
+                    <form id="frm_search" class="layui-form" lay-filter="frm_search">
+                        <div class="layui-inline">
+                            <label>BGP IP：</label>
+                            <div class="layui-input-inline">
+                                <input name="bgp_ip" type="text" class="layui-input txt-focus" value=""
+                                       placeholder="BGP 管理 IP">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label>ASN：</label>
+                            <div class="layui-input-inline">
+                                <input name="bgp_asn" type="text" class="layui-input txt-focus" value=""
+                                       placeholder="关联的 AS 号">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div>
+                                <button class="layui-btn btn-default" lay-submit="" lay-filter="btn_search"
+                                        id="btn_search" type="submit">
+                                    <i class="ficon icon-search_list"></i>BGP 查询
+                                </button>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div>
+                                <button id="f_btn_add" class="layui-btn btn-success" type="button"><i
+                                        class="ficon icon-jia"></i>新增 BGP
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panel-box pl25">
+                <div id="grid_main">
+                    <table id="tbl_main" lay-filter="tbl_main"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../dist/layui.js"></script>
+<script src="../dist/js/jq.global.js"></script>
+<div id="div_add" class="layer-pop">
+    <form class="layui-form layui-form-pane" lay-filter="frm_add" id="frm_add">
+        <div class="layui-form-item">
+            <label class="layui-form-label">BGP IP：</label>
+            <div class="layui-input-block">
+                <input name="bgp_ip" type="text" class="layui-input txt-focus" value=""
+                       placeholder="BGP 管理 IP" lay-verify="required" lay-vertype="tips">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">所属 ASN：</label>
+            <div class="layui-input-block">
+                <input name="bgp_asn" type="text" class="layui-input txt-focus" value=""
+                       placeholder="BGP 关联的 ASN" lay-verify="required" lay-vertype="tips">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">测试字段：</label>
+            <div class="layui-input-block">
+                <input name="bgp_test_float" type="text" class="layui-input txt-focus" value=""
+                       placeholder="浮点数, 保留2位小数" lay-verify="required" lay-vertype="tips">
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">BGP 描述信息：</label>
+            <div class="layui-input-block">
+                    <textarea name="bgp_desc" class="layui-textarea txt-focus"
+                              placeholder="描述内容换行等格式无效" lay-verify="required" lay-vertype="tips"></textarea>
+            </div>
+        </div>
+        <div class="center">
+            <button class="layui-btn layui-btn-sm btn-primary" type="submit" lay-submit lay-filter="btn_add_save">
+                <i class="ficon icon-gou"></i>保 存
+            </button>
+            <button class="layui-btn layui-btn-sm btn-warning" id="btn_add_close" type="button">
+                <i class="ficon icon-cha"></i>取 消
+            </button>
+        </div>
+    </form>
+</div>
+<script type="text/html" id="bar_action">
+    <div class="layui-btn-group">
+        <a class="layui-btn layui-btn-xs btn-brown" lay-event="delete">删除</a>
+    </div>
+</script>
+<script>
+    $(function () {
+        const BTN_SEARCH = $('#btn_search');
+        const FRM_SEARCH = $('#frm_search');
+        let FN = {
+            // 主表
+            tb_main: function (d, s) {
+                // 字段设置, 可由其他 js 引入或由后端生成, 与 table 配置解耦
+                var def = {
+                    before: [
+                        {type: 'numbers'}
+                    ],
+                    main: {
+                        'bgp_ip': {title: 'BGP 管理 IP', width: 140, sort: true},
+                        'bgp_asn': {title: 'ASN', width: 100, sort: true},
+                        'bgp_update': {title: '最后更新', width: 170, sort: true},
+                        'bgp_desc': {title: 'BGP 描述'},
+                        // 一个表格多个不固定数据源时, 这里可以是所有字段格式的集合
+                        // 表格会按后端传过来的字段集中字段名自动匹配并渲染
+                        'days_last_month_peak_rate': {
+                            title: '没用到的字段, 没关系', width: 160, align: 'right',
+                            templet: function (d) {
+                                return '<span style="color:'
+                                    + (d.days_last_month_peak_rate > 0 ? '#df5640' : '#46be8a') + '">'
+                                    + (Math.round(d.days_last_month_peak_rate * 10000) / 100).toFixed(2)
+                                    + '%</span>';
+                            }
+                        },
+                        'bgp_test_float': {
+                            title: '右对齐(金额)', width: 140, align: 'right',
+                            templet: function (d) {
+                                return '￥' + d.bgp_test_float;
+                            }
+                        },
+                        // 指定隐藏显示该字段
+                        'bgp_test_hide1': {hide: true},
+                        'days_desc': {title: '备注', align: 'left', width: 180}
+                    },
+                    main_add: {
+                        // 在某个字段之后附加字段, 可以是多个
+                        'bgp_asn': [
+                            {
+                                title: 'ASN后增加的字段', width: 180,
+                                templet: function (d) {
+                                    return 'demo.main_add: ' + d['bgp_asn'];
+                                }
+                            },
+                            {title: '可以有多个', templet: '<div>常用于前端计算和显示百分比字段</div>'}
+                        ],
+                        'total_avg': [
+                            {
+                                title: '总延迟%',
+                                templet: function (d) {
+                                    return '<div>' + (d["total_avg"] / d["total_valid"] * 100).toFixed(2) + '%</div>';
+                                }
+                            }
+                        ]
+                    },
+                    after: [{title: '操作', width: 80, align: 'center', fixed: 'right', toolbar: '#bar_action'}]
+                };
+                let cfg = {
+                    id: 'tbl_main',
+                    elem: '#tbl_main',
+                    even: true,
+
+                    page: true,
+                    // 开启 dataPage: true 则为前端分页, 先在后端请求所有数据, 再前端分页
+                    // dataPage: true,
+                    // 每页显示数量, 演示分页, 这里一般默认 60
+                    limit: 10,
+                    // 后端分页时指定请求方法与后端一致
+                    method: 'get',
+
+                    loading: true,
+
+                    // 排序时后端排序 (示例, 点击排序时需要真实后端排序)
+                    initSort: s || {field: 'bgp_update', type: 'asc'},
+                    autoSort: false,
+
+                    // 可指定要显示的字段, 且按指定的顺序显示到表格
+                    // 当列表中有后端结果集中不存在的字段时, 自动显示为空
+                    // 不指定则表格自动按后端返回的数据集中的字段匹配 def 后显示
+                    // bgp_ip_id, bgp_test_hide2 没被选择, 自动被隐藏
+                    colsFields: ['bgp_ip', 'bgp_asn', 'bgp_test_float', 'non_existent', 'bgp_update', 'bgp_desc'],
+                    // 默认居中显示, 在字段中指定的对齐方式优先
+                    colsAlign: 'center',
+
+                    // 也可以使用原生的固定字段方式
+                    // cols: [[
+                    //    {type: 'numbers'},
+                    //    {field: 'bgp_ip', title: 'BGP 管理 IP', width: 140, sort: true},
+                    //    {field: 'bgp_asn', title: 'ASN', width: 100, sort: true},
+                    //    {field: 'bgp_update', title: '最后更新', width: 170, sort: true},
+                    //    {field: 'bgp_desc', title: 'BGP 描述'},
+                    //    {title: '操作', width: 100, align: 'center', fixed: 'right', toolbar: '#bar_action'}
+                    //]],
+                    d: {
+                        url: 'json/table/demo-auto-table.json',
+                        where: d || FRM_SEARCH.serializeJson()
+                    }
+                };
+                $.autoTbl(cfg, def);
+            },
+            // 新增
+            add: function () {
+                FN.reset_form('#frm_add');
+                layer.open({
+                    title: '新增 BGP',
+                    type: 1,
+                    content: $('#div_add'),
+                    success: function (layero, index) {
+                        form.on('submit(btn_add_save)', function (d) {
+                            layer.msg('add: ' + d.field.bgp_ip);
+                            console.log(d);
+                            layer.close(index);
+                            return false;
+                        });
+                        $('#btn_add_close').on('click', function () {
+                            index && layer.close(index);
+                        });
+                    }
+                });
+                return false;
+            },
+            // 删除
+            delete: function (d) {
+                let txt = '确定删除 BGP :<br><b>' + d.bgp_ip + '</b>';
+                layer.confirm(txt, {icon: 3, title: '请仔细核对'}, function () {
+                    layer.msg('delete: ' + d.bgp_ip);
+                });
+                return false;
+            },
+            // 弹出层大小
+            get_pop_area: function () {
+                let w = $(window).width();
+                let h = $(window).height();
+                w = w > 880 ? 880 : (w - 20);
+                h = h > 600 ? 600 : h;
+                return [w, h];
+            },
+            // 清除表单
+            reset_form: function (dom) {
+                if ($(dom).length) {
+                    $(dom)[0].reset();
+                    form.render();
+                }
+            }
+        };
+
+        FN.tb_main();
+
+        // 删除
+        table.on('tool(tbl_main)', function (obj) {
+            obj.event === 'delete' && FN.delete(obj.data);
+        });
+
+        // 查询
+        form.on('submit(btn_search)', function (data) {
+            FN.tb_main(data.field);
+            return false;
+        });
+
+        // 新增
+        $('#f_btn_add').on('click', function () {
+            FN.add();
+        });
+
+        // 排序
+        table.on('sort(tbl_main)', function (obj) {
+            let where = FRM_SEARCH.serializeJson();
+            where['order__field'] = obj.field;
+            where['order__type'] = obj.type;
+            FN.tb_main(where, obj);
+        });
+    });
+</script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 
  @Name：table 表格操作组件
  @License：MIT
- @Update: Fufu, 2021-05-05 适配自动表格
+    
  */
 
 layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
@@ -697,9 +697,6 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
       //参数
       var data = $.extend(params, options.where);
       if(options.contentType && options.contentType.indexOf("application/json") == 0){ //提交 json 格式
-        //.++ json
-        options.method = options.method || 'post';
-        //.end
         data = JSON.stringify(data);
       }
       
@@ -710,9 +707,7 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
         ,url: options.url
         ,contentType: options.contentType
         ,data: data
-        //.++可指定 jsonp 请求，默认 json
-        ,dataType: options.dataType || 'json'
-        //.end
+        ,dataType: 'json'
         ,headers: options.headers || {}
         ,success: function(res){
           //如果有数据解析的回调，则获得其返回的数据
@@ -729,9 +724,6 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
           } else {
             that.renderData(res, curr, res[response.countName]), sort();
             options.time = (new Date().getTime() - that.startTime) + ' ms'; //耗时（接口请求+视图渲染）
-            //.++Ajax 请求增加总数参数
-            that.config.where.count = res[response.countName];
-            //.end
           }
           that.setColsWidth();
           typeof options.done === 'function' && options.done(res, curr, res[response.countName]);
@@ -747,51 +739,20 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
       });
     } else if(options.data && options.data.constructor === Array){ //已知数据
       var res = {}
-      ,startLimit = curr*options.limit - options.limit;
-        
-        //.++自动表格：第一次请求状态及消息，以下两个参数用于模拟 Ajax 请求后表格主体上显示的错误消息
-        if (options.firstCode && options.firstMsg) {
-          that.errorView(options.firstMsg || '返回的数据状态异常');
-          that.renderForm();
-          that.setColsWidth();
-          return false;
-        }
-        //.Ajax 自动表格：系统接管后续的分页请求，不会再执行到这里
-        if (options.page && options.setUrl) {
-            //.后续请求的 url 和参数
-            that.config.url = options.setUrl;
-            options.setWhere && $.extend(that.config.where, options.setWhere);
-            //.请求增加总数参数
-            res[response.dataName]  = options.data;
-            res[response.countName] = options.setCount;
-            that.config.where.count = res[response.countName];
-        } else {
-            //.原代码
-            res[response.dataName]  = options.data.concat().splice(startLimit, options.limit);
-            res[response.countName] = options.data.length;
-        }
-        //.end
-  
-        //.++如果有数据解析的回调，则获得其返回的数据
-        if(typeof options.parseData === 'function'){
-          res = options.parseData(res) || res;
-        }
-        //记录合计行数据
-        if(typeof options.totalRow === 'object'){
-          res[response.totalRowName] = $.extend({}, options.totalRow);
-        }
-
-        that.renderData(res, curr, res[response.countName]), sort();
-        that.setColsWidth();
-        //.+-完成回调使用原始数据集或表格渲染使用的数据
-        typeof options.done === 'function' && options.done(options.setRes || res, curr, res[response.countName]);
-        //.end
-        
-        //.++返回数据集中数据字段不正确时
-      } else {
-          that.errorView('数据接口请求异常');
-      //.end
+      ,startLimit = curr*options.limit - options.limit
+      
+      res[response.dataName] = options.data.concat().splice(startLimit, options.limit);
+      res[response.countName] = options.data.length;
+      
+      //记录合计行数据
+      if(typeof options.totalRow === 'object'){
+        res[response.totalRowName] = $.extend({}, options.totalRow);
       }
+
+      that.renderData(res, curr, res[response.countName]), sort();
+      that.setColsWidth();
+      typeof options.done === 'function' && options.done(res, curr, res[response.countName]);
+    }
   };
   
   //遍历表头
@@ -960,11 +921,6 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
         ,prev: '<i class="layui-icon">&#xe603;</i>'
         ,next: '<i class="layui-icon">&#xe602;</i>'
         ,jump: function(obj, first){
-          //.++增加切换分页时的回调，需要返回 obj 对象
-          typeof options.myJump === 'function' && (obj = options.myJump(obj, first));
-          //.附加 jump 自定义回调方法中的请求参数
-          obj.q && $.extend(that.config.where, obj.q);
-          //.end
           if(!first){
             //分页本身并非需要做以下更新，下面参数的同步，主要是因为其它处理统一用到了它们
             //而并非用的是 options.page 中的参数（以确保分页未开启的情况仍能正常使用）
@@ -2067,3 +2023,4 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
   exports(MOD_NAME, table);
 });
 
+ 
